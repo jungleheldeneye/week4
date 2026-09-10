@@ -1,0 +1,7 @@
+.DS_Store
+
+# VSCode C build outputs (same name as each source file, without .c)
+Data-Structures/Binary_Search_Tree/Q?_F_BST
+Data-Structures/Binary_Tree/Q?_E_BT
+Data-Structures/Linked_List/Q?_A_LL
+Data-Structures/Stack_and_Queue/Q?_C_SQ
