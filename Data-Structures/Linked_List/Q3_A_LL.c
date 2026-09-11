@@ -69,7 +69,6 @@ int main()
 			moveOddItemsToBack(&ll); // You need to code this function
 			printf("The resulting linked list after moving odd integers to the back of the linked list is: ");
 			printList(&ll);
-			removeAllItems(&ll);
 			break;
 		case 0:
 			removeAllItems(&ll);
@@ -86,6 +85,27 @@ int main()
 
 void moveOddItemsToBack(LinkedList *ll)
 {
+	int n = ll->size;
+	int index = 0;
+	ListNode *temp = ll->head;
+
+    while(n>0){
+		if(temp->item % 2 != 0) {
+        insertNode(ll, ll->size , temp->item);
+		temp = temp->next;
+		removeNode(ll, index);
+		n--;
+       }
+	   else{
+		temp = temp->next;
+        n--;
+		index++;
+	   }
+
+	}
+
+
+
 	/* add your code here */
 }
 
