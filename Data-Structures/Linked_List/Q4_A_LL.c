@@ -10,7 +10,7 @@ Purpose: Implementing the required functions for Question 4 */
 #include <stdlib.h>
 
 //////////////////////////////////////////////////////////////////////////////////
-
+ 
 typedef struct _listnode
 {
 	int item;
@@ -83,11 +83,28 @@ int main()
 }
 
 //////////////////////////////////////////////////////////////////////////////////
-
 void moveEvenItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
+	int n = ll->size;
+	int index = 0;
+	ListNode *temp = ll->head;
+
+    while(n>0){
+		if(temp->item % 2 == 0) {
+        insertNode(ll, ll->size , temp->item);
+		temp = temp->next;
+		removeNode(ll, index);
+		n--;
+       }
+	   else{
+		temp = temp->next;
+        n--;
+		index++;
+	   }
+
+	}
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
