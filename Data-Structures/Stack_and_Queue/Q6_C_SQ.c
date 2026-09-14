@@ -111,6 +111,22 @@ int main()
 
 void removeUntil(Stack *s, int value)
 {
+	LinkedList *temp;
+	ListNode *node;
+	node = (s->ll).head;
+    int i, size = s->ll.size;
+    for (i=0; i<size; i++){
+	if (node->item != value) {
+			pop(s);
+			node = (s->ll).head;
+			//node 를 계속 바꿔줘야함
+	}
+	if (node->item == value) {
+			return; 
+	}}
+	return;
+
+
 /* add your code here */
 }
 
