@@ -87,6 +87,28 @@ int main()
 
 void RecursiveReverse(ListNode **ptrHead)
 {
+
+	ListNode *temp = *(ptrHead);
+    
+	//끝까지 가면 뒤집기
+	if (temp->next->next == NULL) {
+		*(ptrHead) = temp->next;
+		temp->next->next = temp;
+		temp->next = NULL;
+		
+		return;
+	}
+	
+
+	//재귀로 끝까지 보내기, 끝에서 뒤집고 돌아온거 이어붙이면서 뒤집기
+    if (temp->next->next != NULL){
+		*(ptrHead) = temp->next;
+		RecursiveReverse(ptrHead);
+		temp->next->next = temp;
+		temp->next = NULL;
+	}
+    
+	
 	/* add your code here */
 }
 
