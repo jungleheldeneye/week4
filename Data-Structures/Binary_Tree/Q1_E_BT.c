@@ -114,9 +114,49 @@ int main()
 //////////////////////////////////////////////////////////////////////////////////
 
 int identical(BTNode *tree1, BTNode *tree2)
-
+    
 {
-   /* add your code here */
+    int result = 0;
+
+    if (tree1->item != tree2->item) {
+        result = result + 1;
+    } 
+   
+    // xor ( ^ ) 사용. 두 비트가 다르면 1, 같으면 0. 
+    if (tree1->left == NULL ^ tree2->left == NULL){
+        result = result + 1;
+    }
+
+    if (tree1->left == NULL && tree2->left == NULL) {
+        result = result;
+    }
+    else
+    {
+        if (identical(tree1->left, tree2->left) == 1){
+            result = result;
+        }
+        else result = result + 1;
+    }
+
+    if (tree1->right == NULL ^ tree2->right == NULL){
+        result = 0;
+    }
+
+    if (tree1->right == NULL && tree2->right == NULL){
+        result = result;
+    }
+    else {    
+        if  (identical(tree1->right, tree2->right) == 1){
+            result = result;
+        }
+        else result = result + 1;
+        }
+    
+
+    if (result == 0) return 1;
+    else return 0;
+
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////
