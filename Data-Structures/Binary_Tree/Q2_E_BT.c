@@ -97,6 +97,33 @@ int main()
 int maxHeight(BTNode *node)
 
 {
+
+    //사실 아래 줄 때문에 node 아래 유무 검사 안해도 됐음
+    if (node == NULL) return -1;
+
+    int n = 0;
+    int ln = 0, rn = 0; 
+
+    //막다른 노드
+    if (node->left == NULL && node->right == NULL) {
+        return n;
+    }
+
+    if (node->left != NULL) {
+        ln = maxHeight(node->left) + 1;
+    }
+
+    if (node->right != NULL) {
+        rn = maxHeight(node->right) + 1;
+    }
+    
+    if (rn > ln) {
+        return rn;
+    }
+    else return ln;
+
+    
+    
     /* add your code here */
 }
 
