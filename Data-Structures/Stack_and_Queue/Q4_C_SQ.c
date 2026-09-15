@@ -112,6 +112,39 @@ int main()
 
 void reverse(Queue *q)
 {
+	LinkedList *temp, *temp2;
+	ListNode *node;
+	Queue tempq;
+    temp = &(q->ll);
+	int size = temp->size, size2 = temp->size;
+	int save;
+
+	//tempq 만들고 초기화까지 중요
+	tempq.ll.head = NULL;
+    tempq.ll.size = 0;
+
+
+	while (size > 0) {
+		node = findNode(temp, size-1);
+		save = node->item;
+        enqueue(&tempq, save);
+	    size--;
+	}
+
+	*q = tempq;
+    
+	
+	//while (size2 > 0) {
+	//	temp2 = &(tempq->ll);
+	//	node = temp2->head;
+	//	save = node->item;
+	//	dequeue(tempq);
+	//	enqueue(q, save);
+	//	node = node->next;
+	//	size--;
+
+	
+
 /* add your code here */
 }
 
