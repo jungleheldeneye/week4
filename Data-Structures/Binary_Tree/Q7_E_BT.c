@@ -102,6 +102,25 @@ int main()
 
 int smallestValue(BTNode *node)
 {
+    int min;
+
+    //재귀 맨끝에서 비교대상 만들기 위해 가장 큰 값을 설정 
+    if (node == NULL) return __INT_MAX__;
+    
+    if (smallestValue(node->left) < smallestValue(node->right)) {
+        min = smallestValue(node->left);
+    }
+    else  {
+        min = smallestValue(node->right);
+    }
+    
+
+    if (min > node->item) {
+        min = node->item;
+    }
+    
+    return min;
+
 	/* add your code here */
 }
 
